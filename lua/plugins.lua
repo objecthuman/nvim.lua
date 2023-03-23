@@ -21,7 +21,9 @@ function R.setup()
         { 'nvim-lualine/lualine.nvim' },
         { 'windwp/nvim-autopairs' },
         { 'numToStr/Comment.nvim' },
-        { 'olimorris/onedarkpro.nvim' },
+        -- { 'olimorris/onedarkpro.nvim' },
+        -- {'sainnhe/sonokai'},
+        { 'savq/melange-nvim' },
         {
             'nvim-telescope/telescope.nvim',
             tag = '0.1.1',
@@ -35,15 +37,23 @@ function R.setup()
             'nvim-neo-tree/neo-tree.nvim',
             dependencies = {
                 "nvim-lua/plenary.nvim",
-                "nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
+                "nvim-tree/nvim-web-devicons",
                 "MunifTanjim/nui.nvim",
             }
         },
         { 'neovim/nvim-lspconfig' },
         { 'nvim-treesitter/nvim-treesitter', setup = ":TSUpdate" },
-		{'numToStr/Navigator.nvim'},
-		{'jose-elias-alvarez/null-ls.nvim'},
-		{'github/copilot.vim'},
+        { 'numToStr/Navigator.nvim' },
+        { 'jose-elias-alvarez/null-ls.nvim' },
+        { 'github/copilot.vim' },
+        { 'hrsh7th/cmp-nvim-lsp' },
+        { 'hrsh7th/cmp-buffer' },
+        { 'hrsh7th/cmp-path' },
+        { 'hrsh7th/cmp-cmdline' },
+        { 'hrsh7th/nvim-cmp' },
+        { 'L3MON4D3/LuaSnip' },
+        { 'onsails/lspkind.nvim' },
+        { 'hrsh7th/vim-vsnip' },
 
     })
 
@@ -54,8 +64,10 @@ function R.setup()
     require("config.telescope").setup()
     require("config.comment").setup()
     require("config.lsp").setup()
-	require("config.navigator").setup()
-	require("config.nullls").setup()
+    require("config.navigator").setup()
+    require("config.nullls").setup()
+    require('config.cmp').setup()
+    -- require('config.kind').setup()
 end
 
 return R
