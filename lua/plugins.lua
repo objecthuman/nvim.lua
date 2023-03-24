@@ -46,6 +46,7 @@ function R.setup()
         { 'numToStr/Navigator.nvim' },
         { 'jose-elias-alvarez/null-ls.nvim' },
         { 'github/copilot.vim' },
+        { 'akinsho/bufferline.nvim' },
         { 'hrsh7th/cmp-nvim-lsp' },
         { 'hrsh7th/cmp-buffer' },
         { 'hrsh7th/cmp-path' },
@@ -54,6 +55,7 @@ function R.setup()
         { 'L3MON4D3/LuaSnip' },
         { 'onsails/lspkind.nvim' },
         { 'hrsh7th/vim-vsnip' },
+        { "danymat/neogen" },
 
     })
 
@@ -67,6 +69,9 @@ function R.setup()
     require("config.navigator").setup()
     require("config.nullls").setup()
     require('config.cmp').setup()
+    require("config.bufferline").setup()
+    -- require('config.heirline').setup()
+
     -- require('config.kind').setup()
 end
 
