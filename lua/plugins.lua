@@ -21,17 +21,11 @@ function R.setup()
         { 'nvim-lualine/lualine.nvim' },
         { 'windwp/nvim-autopairs' },
         { 'numToStr/Comment.nvim' },
-        -- { 'olimorris/onedarkpro.nvim' },
-        -- {'sainnhe/sonokai'},
         { 'savq/melange-nvim' },
         {
             'nvim-telescope/telescope.nvim',
             tag = '0.1.1',
             dependencies = { 'nvim-lua/plenary.nvim' }
-        },
-        {
-            'nvim-tree/nvim-tree.lua',
-            dependencies = { 'nvim-tree/nvim-web-devicons' }
         },
         {
             'nvim-neo-tree/neo-tree.nvim',
@@ -42,7 +36,8 @@ function R.setup()
             }
         },
         { 'neovim/nvim-lspconfig' },
-        { 'nvim-treesitter/nvim-treesitter', setup = ":TSUpdate" },
+        { 'nvim-treesitter/nvim-treesitter',  setup = ":TSUpdate" },
+        { 'nyngwang/NeoZoom.lua' },
         { 'numToStr/Navigator.nvim' },
         { 'jose-elias-alvarez/null-ls.nvim' },
         { 'github/copilot.vim' },
@@ -56,11 +51,14 @@ function R.setup()
         { 'onsails/lspkind.nvim' },
         { 'hrsh7th/vim-vsnip' },
         { "danymat/neogen" },
+        { 'VonHeikemen/lsp-zero.nvim' },
+        { 'williamboman/mason.nvim' },
+        { 'williamboman/mason-lspconfig.nvim' }
 
     })
 
     require('lualine').setup()
-    -- require("config.nvimtree").setup()
+    require("mason").setup()
     require('config.neotree').setup()
     require("config.autoparis").setup()
     require("config.telescope").setup()
@@ -70,9 +68,7 @@ function R.setup()
     require("config.nullls").setup()
     require('config.cmp').setup()
     require("config.bufferline").setup()
-    -- require('config.heirline').setup()
-
-    -- require('config.kind').setup()
+    require("config.neozoom").setup()
 end
 
 return R

@@ -44,10 +44,6 @@ function M.setup()
 
 	cmp.setup {
 		completion = { completeopt = "menu,menuone,noinsert", keyword_length = 1 },
-		-- experimental = { native_menu = false, ghost_text = false },
-		-- view = {
-		--   entries = "native",
-		-- },
 		snippet = {
 			expand = function(args)
 				require("luasnip").lsp_expand(args.body)
@@ -61,7 +57,7 @@ function M.setup()
 				vim_item.menu = ({
 					nvim_lsp = "[LSP]",
 					luasnip = "[Snip]",
-					buffer = "[Buffer]",
+					-- buffer = "[Buffer]",
 					nvim_lua = "[Lua]",
 					treesitter = "[Treesitter]",
 					path = "[Path]",
@@ -183,7 +179,7 @@ function M.setup()
 			{ name = "luasnip" },
 			{ name = "nvim_lsp" },
 			{ name = "treesitter" },
-			{ name = "buffer" },
+			-- { name = "buffer" },
 			{ name = "nvim_lua" },
 			{ name = "path" },
 			{ name = "nvim_lsp_signature_help" },
@@ -201,11 +197,11 @@ function M.setup()
 	}
 
 	-- Use buffer source for `/`
-	cmp.setup.cmdline("/", {
-		sources = {
-			{ name = "buffer" },
-		},
-	})
+	-- cmp.setup.cmdline("/", {
+	-- 	sources = {
+	-- 		{ name = "buffer" },
+	-- 	},
+	-- })
 
 	-- Use cmdline & path source for ':'
 	cmp.setup.cmdline(":", {
