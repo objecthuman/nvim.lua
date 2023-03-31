@@ -66,7 +66,6 @@ function R.setup()
     require("config.lsp").setup()
     require("config.navigator").setup()
     require("config.nullls").setup()
-    require('config.cmp').setup()
     require("config.bufferline").setup()
     require("config.neozoom").setup()
 end
