@@ -31,7 +31,7 @@ local M = {}
         },
       },
     }
-    vim.keymap.set('n', '<CR>', function () vim.cmd('NeoZoomToggle') end, { silent = true, nowait = true })
+    vim.keymap.set('n', '<CR><CR>', function () vim.cmd('NeoZoomToggle') end, { silent = true, nowait = true })
 
 end
 
