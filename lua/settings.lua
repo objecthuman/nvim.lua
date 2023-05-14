@@ -12,3 +12,10 @@ vim.cmd.colorscheme('tokyonight')
 -- add relative line numbers 
 
 vim.opt.relativenumber = true
+
+vim.cmd([[
+  augroup AutoRead
+    autocmd!
+    autocmd FocusGained,BufEnter * silent! checktime
+  augroup END
+]])
