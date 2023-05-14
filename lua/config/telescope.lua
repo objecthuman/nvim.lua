@@ -25,6 +25,8 @@ function M.setup()
 	vim.keymap.set("n", "<leader>fw", builtin.live_grep, {})
 	vim.keymap.set("n", "<leader>fb", builtin.buffers, {})
 	vim.keymap.set("n", "<leader>fh", builtin.help_tags, {})
+	vim.keymap.set("n", "<leader>fb", builtin.git_branches, {})
+	vim.keymap.set("n", "<leader>fs", builtin.git_status, {})
 end
 
 return M
