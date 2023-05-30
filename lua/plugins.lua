@@ -1,8 +1,6 @@
 local R = {}
 
 
-local R = {}
-
 function R.setup()
 	local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 	if not vim.loop.fs_stat(lazypath) then
@@ -11,7 +9,7 @@ function R.setup()
 			"clone",
 			"--filter=blob:none",
 			"https://github.com/folke/lazy.nvim.git",
-			"--branch=stable", -- latest stable release
+			"--branch=stable",
 			lazypath,
 		})
 	end
@@ -19,7 +17,8 @@ function R.setup()
 	vim.opt.rtp:prepend(lazypath)
 
 	require("lazy").setup({
-		{ "folke/tokyonight.nvim" },
+		-- { "folke/tokyonight.nvim" },
+		{ "catppuccin/nvim",          name = "catppuccin" },
 		{ "ellisonleao/gruvbox.nvim" },
 		{ "nvim-lualine/lualine.nvim" },
 		{ "windwp/nvim-autopairs" },
@@ -72,6 +71,7 @@ function R.setup()
 	require("config.bufferline").setup()
 	require("config.neozoom").setup()
 	require("config.neoclip").setup()
+	require("config.catppuccin").setup()
 	-- require("neoclip").setup()
 end
 

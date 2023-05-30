@@ -8,7 +8,7 @@ vim.opt.tabstop = 4
 vim.opt.expandtab = false
 
 vim.opt.termguicolors = true
-vim.cmd.colorscheme('tokyonight')
+vim.cmd.colorscheme('catppuccin-mocha')
 -- add relative line numbers 
 
 vim.opt.relativenumber = true
