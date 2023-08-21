@@ -57,6 +57,9 @@ function R.setup()
 		{ "williamboman/mason.nvim" },
 		{ "williamboman/mason-lspconfig.nvim" },
 		{ "AckslD/nvim-neoclip.lua" },
+		{ "tanvirtin/vgit.nvim",
+			dependencies ={ "nvim-lua/plenary.nvim" },
+		},
 	})
 
 	require("lualine").setup()
@@ -72,6 +75,7 @@ function R.setup()
 	require("config.neozoom").setup()
 	require("config.neoclip").setup()
 	require("config.catppuccin").setup()
+	require("config.vgit").setup()
 	-- require("neoclip").setup()
 end
 

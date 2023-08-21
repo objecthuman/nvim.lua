@@ -7,8 +7,8 @@ vim.keymap.set({ 'n', 'x' }, 'x', '"_x')
 vim.keymap.set('n', '<leader>a', ':keepjumps normal! ggVG<cr>')
 
 vim.api.nvim_set_keymap('n', '<C-q>', '<cmd>q!<cr>', { noremap = true, silent = true })
-vim.keymap.set('n', '<leader>e', ':NeoTreeFocusToggle<CR>', { silent = false })
-vim.keymap.set('n', '<leader>o', ':NeoTreeFocus<CR>', { silent = true })
+vim.keymap.set('n', '<leader>e', ':Neotree focus toggle<CR>', { silent = false })
+vim.keymap.set('n', '<leader>o', ':Neotree focus<CR>', { silent = true })
 
 vim.keymap.set("n", "<leader>lf", vim.lsp.buf.format);
 vim.api.nvim_set_keymap('n', '<S-h>', ':bp<CR>', { noremap = true, silent = true })
