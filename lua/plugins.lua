@@ -26,7 +26,7 @@ function R.setup()
 		{ "savq/melange-nvim" },
 		{
 			"nvim-telescope/telescope.nvim",
-			tag = "0.1.1",
+			tag = "0.1.4",
 			dependencies = { "nvim-lua/plenary.nvim" },
 		},
 		{
@@ -57,8 +57,9 @@ function R.setup()
 		{ "williamboman/mason.nvim" },
 		{ "williamboman/mason-lspconfig.nvim" },
 		{ "AckslD/nvim-neoclip.lua" },
-		{ "tanvirtin/vgit.nvim",
-			dependencies ={ "nvim-lua/plenary.nvim" },
+		{
+			"tanvirtin/vgit.nvim",
+			dependencies = { "nvim-lua/plenary.nvim" },
 		},
 	})
 
