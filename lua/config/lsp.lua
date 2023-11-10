@@ -5,30 +5,37 @@ function M.setup()
 
   lsp.preset("recommended")
 
-  lsp.ensure_installed({
-    'tsserver',
-    'rust_analyzer',
-    'pyright',
-    'clangd',
-    'yamlls',
+  require('mason').setup({})
+  require('mason-lspconfig').setup({
+    ensure_installed = {
+      'tsserver',
+      'rust_analyzer',
+      'pyright',
+      'clangd',
+      'yamlls',
+    },
+    handlers = {
+      lsp.default_setup,
+      lua_ls = function()
+        local lua_opts = lsp.nvim_lua_ls()
+        require('lspconfig').lua_ls.setup(lua_opts)
+      end,
+    },
   })
-
-
 
   local cmp = require('cmp')
-  local cmp_select = { behavior = cmp.SelectBehavior.Select }
-  local cmp_mappings = lsp.defaults.cmp_mappings({
-    ['<C-k>'] = cmp.mapping.select_prev_item(cmp_select),
-    ['<C-j>'] = cmp.mapping.select_next_item(cmp_select),
-    ['<C-y>'] = cmp.mapping.confirm({ select = true }),
-    ["<C-Space>"] = cmp.mapping.complete(),
-  })
 
-  cmp_mappings['<Tab>'] = nil
-  cmp_mappings['<S-Tab>'] = nil
-
-  lsp.setup_nvim_cmp({
-    mapping = cmp_mappings
+  cmp.setup({
+    select = { behavior = cmp.SelectBehavior.Select
+    },
+    mapping = cmp.mapping.preset.insert({
+      ['<C-k>'] = cmp.mapping.select_prev_item(cmp_select),
+      ['<C-j>'] = cmp.mapping.select_next_item(cmp_select),
+      ['<C-y>'] = cmp.mapping.confirm({ select = true }),
+      ["<C-Space>"] = cmp.mapping.complete(),
+      ['<Tab>'] = nil,
+      ['<S-Tab>'] = nil
+    })
   })
 
   lsp.set_preferences({
