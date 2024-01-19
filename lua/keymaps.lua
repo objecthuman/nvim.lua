@@ -11,6 +11,7 @@ vim.api.nvim_set_keymap('n', '<C-q>', '<cmd>q!<cr>', { noremap = true, silent = 
 
 vim.keymap.set('n', '<leader>e', ':NvimTreeToggle <CR>', { silent = false })
 vim.keymap.set('n', '<leader>o', ':NvimTreeFocus <CR>', { silent = true })
+vim.keymap.set('n', 'gs', ':vsplit | lua vim.lsp.buf.definition()<CR>')
 
 vim.keymap.set("n", "<leader>lf", vim.lsp.buf.format);
 vim.api.nvim_set_keymap('n', '<S-h>', ':bp<CR>', { noremap = true, silent = true })
