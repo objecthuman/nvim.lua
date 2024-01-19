@@ -17,13 +17,9 @@ function R.setup()
 	vim.opt.rtp:prepend(lazypath)
 
 	require("lazy").setup({
-		-- { "folke/tokyonight.nvim" },
 		{ "catppuccin/nvim",          name = "catppuccin" },
-		{ "ellisonleao/gruvbox.nvim" },
-		{ "nvim-lualine/lualine.nvim" },
 		{ "windwp/nvim-autopairs" },
 		{ "numToStr/Comment.nvim" },
-		{ "savq/melange-nvim" },
 		{
 			"nvim-telescope/telescope.nvim",
 			tag = "0.1.4",
@@ -43,7 +39,6 @@ function R.setup()
 		{ "numToStr/Navigator.nvim" },
 		{ "jose-elias-alvarez/null-ls.nvim" },
 		{ "github/copilot.vim" },
-		{ "akinsho/bufferline.nvim" },
 		{ "hrsh7th/cmp-nvim-lsp" },
 		{ "hrsh7th/cmp-buffer" },
 		{ "hrsh7th/cmp-path" },
@@ -56,14 +51,8 @@ function R.setup()
 		{ "VonHeikemen/lsp-zero.nvim" },
 		{ "williamboman/mason.nvim" },
 		{ "williamboman/mason-lspconfig.nvim" },
-		{ "AckslD/nvim-neoclip.lua" },
-		{
-			"tanvirtin/vgit.nvim",
-			dependencies = { "nvim-lua/plenary.nvim" },
-		},
 	})
 
-	require("lualine").setup()
 	require("mason").setup()
 	require("config.neotree").setup()
 	require("config.autoparis").setup()
@@ -72,12 +61,8 @@ function R.setup()
 	require("config.lsp").setup()
 	require("config.navigator").setup()
 	require("config.nullls").setup()
-	require("config.bufferline").setup()
 	require("config.neozoom").setup()
-	require("config.neoclip").setup()
 	require("config.catppuccin").setup()
-	require("config.vgit").setup()
-	-- require("neoclip").setup()
 end
 
 return R

@@ -16,7 +16,6 @@ vim.api.nvim_set_keymap('n', '<S-h>', ':bp<CR>', { noremap = true, silent = true
 vim.api.nvim_set_keymap('n', '<S-l>', ':bn<CR>', { noremap = true, silent = true })
 
 vim.api.nvim_set_keymap('i', '<C-x>', 'copilot#Accept("<CR>")', { expr = true, silent = true })
-vim.api.nvim_set_keymap("n", "<leader>fn", ":Telescope neoclip<CR>", { noremap = true, silent = true })
 
 vim.g['copilot_no_tab_map'] = true
 vim.g['copilot_assume_mapped'] = true

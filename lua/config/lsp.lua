@@ -13,6 +13,7 @@ function M.setup()
       'pyright',
       'clangd',
       'yamlls',
+	  'luals'
     },
     handlers = {
       lsp.default_setup,
