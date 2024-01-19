@@ -25,14 +25,6 @@ function R.setup()
 			tag = "0.1.4",
 			dependencies = { "nvim-lua/plenary.nvim" },
 		},
-		{
-			"nvim-neo-tree/neo-tree.nvim",
-			dependencies = {
-				"nvim-lua/plenary.nvim",
-				"nvim-tree/nvim-web-devicons",
-				"MunifTanjim/nui.nvim",
-			},
-		},
 		{ "neovim/nvim-lspconfig" },
 		{ "nvim-treesitter/nvim-treesitter",  setup = ":TSUpdate" },
 		{ "nyngwang/NeoZoom.lua" },
@@ -51,10 +43,10 @@ function R.setup()
 		{ "VonHeikemen/lsp-zero.nvim" },
 		{ "williamboman/mason.nvim" },
 		{ "williamboman/mason-lspconfig.nvim" },
+		{"nvim-tree/nvim-tree.lua"},
 	})
 
 	require("mason").setup()
-	require("config.neotree").setup()
 	require("config.autoparis").setup()
 	require("config.telescope").setup()
 	require("config.comment").setup()
@@ -63,6 +55,7 @@ function R.setup()
 	require("config.nullls").setup()
 	require("config.neozoom").setup()
 	require("config.catppuccin").setup()
+	require("config.nvimtree").setup()
 end
 
 return R

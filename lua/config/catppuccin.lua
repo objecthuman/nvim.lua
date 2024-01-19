@@ -1,6 +1,5 @@
 local R = {}
 
-
 function R.setup()
 	require("catppuccin").setup({
 		flavour = "mocha",
