@@ -17,7 +17,7 @@ function R.setup()
 	vim.opt.rtp:prepend(lazypath)
 
 	require("lazy").setup({
-		{ "catppuccin/nvim",          name = "catppuccin" },
+		{ "catppuccin/nvim",      name = "catppuccin" },
 		{ "windwp/nvim-autopairs" },
 		{ "numToStr/Comment.nvim" },
 		{
@@ -43,7 +43,14 @@ function R.setup()
 		{ "VonHeikemen/lsp-zero.nvim" },
 		{ "williamboman/mason.nvim" },
 		{ "williamboman/mason-lspconfig.nvim" },
-		{"nvim-tree/nvim-tree.lua"},
+		{
+			"nvim-tree/nvim-tree.lua",
+			dependencies = {
+				"nvim-lua/plenary.nvim",
+				"nvim-tree/nvim-web-devicons",
+				"MunifTanjim/nui.nvim",
+			},
+		},
 	})
 
 	require("mason").setup()
