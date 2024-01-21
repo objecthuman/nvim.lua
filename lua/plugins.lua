@@ -57,6 +57,7 @@ function R.setup()
 	require("config.neozoom").setup()
 	require("config.catppuccin").setup()
 	require("config.nvimtree").setup()
+	require("config.treesitter").setup()
 end
 
 return R
