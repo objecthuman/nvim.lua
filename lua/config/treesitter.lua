@@ -9,7 +9,7 @@ M.setup = function()
     local treesitter = require("nvim-treesitter.configs")
     treesitter.setup({
         modules = {},
-        ensure_installed = { "c", "lua", "vim", "rust", "javascript", "typescript", "python" },
+        ensure_installed = { "c", "lua", "vim", "go", "javascript", "typescript", "python" },
         textobjects = {
             select = {
                 enable = true,

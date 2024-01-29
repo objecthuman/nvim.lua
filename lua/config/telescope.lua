@@ -27,6 +27,7 @@ function M.setup()
 	vim.keymap.set("n", "<leader>fh", builtin.help_tags, {})
 	vim.keymap.set("n", "<leader>fb", builtin.git_branches, {})
 	vim.keymap.set("n", "<leader>fs", builtin.git_status, {})
+	vim.keymap.set("n", "<leader>df", builtin.lsp_dynamic_workspace_symbols, {})
 end
 
 return M
