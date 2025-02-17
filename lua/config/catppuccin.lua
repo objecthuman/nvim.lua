@@ -37,8 +37,7 @@ function R.setup()
 				}
 			end,
 		},
-	}
-	)
+	})
 end
 
 return R

@@ -1,6 +1,5 @@
 local R = {}
 
-
 function R.setup()
 	local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 	if not vim.loop.fs_stat(lazypath) then
@@ -17,7 +16,7 @@ function R.setup()
 	vim.opt.rtp:prepend(lazypath)
 
 	require("lazy").setup({
-		{ "catppuccin/nvim",      name = "catppuccin" },
+		{ "catppuccin/nvim", name = "catppuccin" },
 		{ "windwp/nvim-autopairs" },
 		{ "numToStr/Comment.nvim" },
 		{
@@ -26,7 +25,7 @@ function R.setup()
 			dependencies = { "nvim-lua/plenary.nvim" },
 		},
 		{ "neovim/nvim-lspconfig" },
-		{ "nvim-treesitter/nvim-treesitter",  setup = ":TSUpdate" },
+		{ "nvim-treesitter/nvim-treesitter", setup = ":TSUpdate" },
 		{ "nyngwang/NeoZoom.lua" },
 		{ "numToStr/Navigator.nvim" },
 		{ "jose-elias-alvarez/null-ls.nvim" },
@@ -51,6 +50,7 @@ function R.setup()
 				"MunifTanjim/nui.nvim",
 			},
 		},
+		checker = { enabled = true },
 	})
 
 	require("mason").setup()
