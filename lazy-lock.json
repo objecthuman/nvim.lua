@@ -4,7 +4,7 @@
   "Navigator.nvim": { "branch": "master", "commit": "91d86506ac2a039504d5205d32a1d4bc7aa57072" },
   "NeoZoom.lua": { "branch": "main", "commit": "c97a0197548c1e9b559e4fa41ab3f7782c93e613" },
   "catppuccin": { "branch": "main", "commit": "5b5e3aef9ad7af84f463d17b5479f06b87d5c429" },
-  "claude-code.nvim": { "branch": "main", "commit": "c9a31e51069977edaad9560473b5d031fcc5d38b" },
+  "claudecode.nvim": { "branch": "main", "commit": "d0f97489d9064bdd55592106e99aa5f355a09914" },
   "cmp-buffer": { "branch": "main", "commit": "b74fab3656eea9de20a9b8116afa3cfc4ec09657" },
   "cmp-cmdline": { "branch": "main", "commit": "d250c63aa13ead745e3a40f61fdd3470efde3923" },
   "cmp-nvim-lsp": { "branch": "main", "commit": "a8912b88ce488f411177fc8aed358b04dc246d7b" },
@@ -24,6 +24,7 @@
   "nvim-treesitter": { "branch": "master", "commit": "0e21ee8df6235511c02bab4a5b391d18e165a58d" },
   "nvim-web-devicons": { "branch": "master", "commit": "57dfa947cc88cdf1baa2c7e13ed31edddd8fb1d1" },
   "plenary.nvim": { "branch": "master", "commit": "857c5ac632080dba10aae49dba902ce3abf91b35" },
+  "snacks.nvim": { "branch": "main", "commit": "bc0630e43be5699bb94dadc302c0d21615421d93" },
   "telescope.nvim": { "branch": "master", "commit": "7011eaae0ac1afe036e30c95cf80200b8dc3f21a" },
   "vim-vsnip": { "branch": "master", "commit": "0a4b8419e44f47c57eec4c90df17567ad4b1b36e" }
 }
