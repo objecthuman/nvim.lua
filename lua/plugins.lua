@@ -29,7 +29,6 @@ function R.setup()
 		{ "nyngwang/NeoZoom.lua" },
 		{ "numToStr/Navigator.nvim" },
 		{ "jose-elias-alvarez/null-ls.nvim" },
-		{ "github/copilot.vim" },
 		{ "hrsh7th/cmp-nvim-lsp" },
 		{ "hrsh7th/cmp-buffer" },
 		{ "hrsh7th/cmp-path" },
@@ -50,6 +49,16 @@ function R.setup()
 				"MunifTanjim/nui.nvim",
 			},
 		},
+		{
+			"greggh/claude-code.nvim",
+			dependencies = {
+				"nvim-lua/plenary.nvim", -- Required for git operations
+			},
+			config = function()
+				require("claude-code").setup()
+			end,
+		},
+
 		checker = { enabled = true },
 	})
 

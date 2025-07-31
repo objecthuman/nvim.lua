@@ -22,6 +22,9 @@ function M.setup()
 	local cmp = require("cmp")
 
 	cmp.setup({
+		sources = {
+			{ name = "nvim_lsp" },
+		},
 		select = { behavior = cmp.SelectBehavior.Select },
 		mapping = cmp.mapping.preset.insert({
 			["<C-k>"] = cmp.mapping.select_prev_item(cmp_select),
