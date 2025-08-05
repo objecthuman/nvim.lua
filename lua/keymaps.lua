@@ -4,7 +4,10 @@ vim.keymap.set("n", "<C-s>", "<cmd>w<cr>", { desc = "Save" })
 vim.keymap.set({ "n", "x" }, "cp", '"+y')
 vim.keymap.set({ "n", "x" }, "cv", '"+p')
 vim.keymap.set({ "n", "x" }, "x", '"_x')
-vim.keymap.set("n", "<leader>a", ":keepjumps normal! ggVG<cr>")
+vim.keymap.set("n", "<leader>a", function()
+  vim.cmd("keepjumps normal! ggVG")
+end, { desc = "Select all text" })
+
 
 vim.api.nvim_set_keymap("n", "<C-q>", "<cmd>q!<cr>", { noremap = true, silent = true })
 
