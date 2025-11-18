@@ -1,8 +1,6 @@
 local M = {}
-function M.setup()
-	local lsp = require("lsp-zero")
 
-	require("mason").setup({})
+function M.setup()
 	require("mason-lspconfig").setup({
 		ensure_installed = {
 			"rust_analyzer",
@@ -10,90 +8,45 @@ function M.setup()
 			"clangd",
 			"yamlls",
 		},
-		handlers = {
-			lsp.default_setup,
-			lua_ls = function()
-				local lua_opts = lsp.nvim_lua_ls()
-				require("lspconfig").lua_ls.setup(lua_opts)
-			end,
-		},
 	})
-
-	local cmp = require("cmp")
-
-	cmp.setup({
-		sources = {
-			{ name = "nvim_lsp" },
-		},
-		select = { behavior = cmp.SelectBehavior.Select },
-		mapping = cmp.mapping.preset.insert({
-			["<C-k>"] = cmp.mapping.select_prev_item(cmp_select),
-			["<C-j>"] = cmp.mapping.select_next_item(cmp_select),
-			["<C-y>"] = cmp.mapping.confirm({ select = true }),
-			["<C-Space>"] = cmp.mapping.complete(),
-			["<Tab>"] = nil,
-			["<S-Tab>"] = nil,
-		}),
-	})
-
-	vim.diagnostic.config({
-		signs = {
-			text = {
-				[vim.diagnostic.severity.ERROR] = "✘",
-				[vim.diagnostic.severity.WARN] = "▲",
-				[vim.diagnostic.severity.HINT] = "⚑",
-				[vim.diagnostic.severity.INFO] = "»",
-			},
-		},
-	})
-	vim.diagnostic.config({
-		signs = false,
-	})
-
-	lsp.on_attach(function(client, bufnr)
-		local opts = { buffer = bufnr, remap = false }
-
-		vim.keymap.set("n", "gd", function()
-			vim.lsp.buf.definition()
-		end, opts)
-		vim.keymap.set("n", "gv", function()
-			vim.lsp.buf.definition()
-		end, opts)
-		vim.keymap.set("n", "K", function()
-			vim.lsp.buf.hover()
-		end, opts)
-		vim.keymap.set("n", "<leader>vws", function()
-			vim.lsp.buf.workspace_symbol()
-		end, opts)
-		vim.keymap.set("n", "T", function()
-			vim.diagnostic.open_float()
-		end, opts)
-		vim.keymap.set("n", "[d", function()
-			vim.diagnostic.goto_next()
-		end, opts)
-		vim.keymap.set("n", "]d", function()
-			vim.diagnostic.goto_prev()
-		end, opts)
-		vim.keymap.set("n", "<leader>vca", function()
-			vim.lsp.buf.code_action()
-		end, opts)
-		vim.keymap.set("n", "<leader>vrr", function()
-			vim.lsp.buf.references()
-		end, opts)
-		vim.keymap.set("n", "<leader>vrn", function()
-			vim.lsp.buf.rename()
-		end, opts)
-		vim.keymap.set("i", "<C-h>", function()
-			vim.lsp.buf.signature_help()
-		end, opts)
-		vim.keymap.set("n", "<space>lr", vim.lsp.buf.rename, opts)
-		vim.keymap.set("n", "<space>la", vim.lsp.buf.code_action, opts)
-	end)
-
-	lsp.setup()
 
 	vim.diagnostic.config({
 		virtual_text = true,
+		signs = true,
+		underline = true,
+		update_in_insert = true,
+		severity_sort = true,
+	})
+
+
+	vim.keymap.set('n', '[d', '<cmd>lua vim.diagnostic.goto_prev()<cr>')
+	vim.keymap.set('n', ']d', '<cmd>lua vim.diagnostic.goto_next()<cr>')
+	vim.keymap.set('n', 'T', '<cmd>lua vim.diagnostic.open_float()<cr>')
+
+	vim.api.nvim_create_autocmd('LspAttach', {
+		callback = function(event)
+			local bufmap = function(mode, lhs, rhs)
+				vim.keymap.set(mode, lhs, rhs, { buffer = event.buf })
+			end
+
+			bufmap('n', 'K', '<cmd>lua vim.lsp.buf.hover()<cr>')
+			bufmap('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<cr>')
+			bufmap('n', 'gv', '<cmd>lua vim.lsp.buf.definition()<cr>')
+			bufmap('n', 'grr', '<cmd>lua vim.lsp.buf.references()<cr>')
+			bufmap('n', 'gri', '<cmd>lua vim.lsp.buf.implementation()<cr>')
+			bufmap('n', 'grn', '<cmd>lua vim.lsp.buf.rename()<cr>')
+			bufmap('n', 'gra', '<cmd>lua vim.lsp.buf.code_action()<cr>')
+			bufmap('n', 'gO', '<cmd>lua vim.lsp.buf.document_symbol()<cr>')
+			bufmap({ 'i', 's' }, '<C-s>', '<cmd>lua vim.lsp.buf.signature_help()<cr>')
+
+			bufmap('n', '<leader>vws', '<cmd>lua vim.lsp.buf.workspace_symbol()<cr>')
+			bufmap('n', '<leader>vca', '<cmd>lua vim.lsp.buf.code_action()<cr>')
+			bufmap('n', '<leader>vrr', '<cmd>lua vim.lsp.buf.references()<cr>')
+			bufmap('n', '<leader>vrn', '<cmd>lua vim.lsp.buf.rename()<cr>')
+			bufmap('i', '<C-h>', '<cmd>lua vim.lsp.buf.signature_help()<cr>')
+			bufmap('n', '<space>lr', '<cmd>lua vim.lsp.buf.rename()<cr>')
+			bufmap('n', '<space>la', '<cmd>lua vim.lsp.buf.code_action()<cr>')
+		end,
 	})
 end
 

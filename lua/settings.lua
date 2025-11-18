@@ -19,3 +19,17 @@ vim.cmd([[
     autocmd FocusGained,BufEnter * silent! checktime
   augroup END
 ]])
+
+vim.opt.autoread = true
+vim.api.nvim_create_autocmd({ 'FocusGained', 'BufEnter', 'CursorHold', 'CursorHoldI' }, {
+  pattern = '*',
+  command = 'checktime',
+})
+
+vim.api.nvim_create_autocmd('FileChangedShellPost', {
+  pattern = '*',
+  callback = function()
+    vim.notify('File reloaded: ' .. vim.fn.expand('%'), vim.log.levels.INFO)
+  end,
+})
+

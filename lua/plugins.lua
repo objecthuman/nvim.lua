@@ -16,7 +16,7 @@ function R.setup()
 	vim.opt.rtp:prepend(lazypath)
 
 	require("lazy").setup({
-		{ "catppuccin/nvim", name = "catppuccin" },
+		{ "catppuccin/nvim",      name = "catppuccin" },
 		{ "windwp/nvim-autopairs" },
 		{ "numToStr/Comment.nvim" },
 		{
@@ -28,7 +28,7 @@ function R.setup()
 		{ "nvim-treesitter/nvim-treesitter", setup = ":TSUpdate" },
 		{ "nyngwang/NeoZoom.lua" },
 		{ "numToStr/Navigator.nvim" },
-		{ "jose-elias-alvarez/null-ls.nvim" },
+		{ "nvimtools/none-ls.nvim" },
 		{ "hrsh7th/cmp-nvim-lsp" },
 		{ "hrsh7th/cmp-buffer" },
 		{ "hrsh7th/cmp-path" },
@@ -39,8 +39,16 @@ function R.setup()
 		{ "hrsh7th/vim-vsnip" },
 		{ "danymat/neogen" },
 		{ "VonHeikemen/lsp-zero.nvim" },
-		{ "williamboman/mason.nvim" },
-		{ "williamboman/mason-lspconfig.nvim" },
+		{ "mason-org/mason.nvim" },
+		{
+			"mason-org/mason-lspconfig.nvim",
+			opts = {},
+			dependencies = {
+				{ "mason-org/mason.nvim", opts = {} },
+				"neovim/nvim-lspconfig",
+			},
+		},
+		{ "github/copilot.vim" },
 		{
 			"nvim-tree/nvim-tree.lua",
 			dependencies = {
@@ -51,6 +59,7 @@ function R.setup()
 		},
 		checker = { enabled = true },
 	})
+
 
 	require("mason").setup()
 	require("config.autoparis").setup()
@@ -64,6 +73,7 @@ function R.setup()
 	require("config.catppuccin").setup()
 	require("config.nvimtree").setup()
 	require("config.treesitter").setup()
+	require("config.completion").setup()
 end
 
 return R
